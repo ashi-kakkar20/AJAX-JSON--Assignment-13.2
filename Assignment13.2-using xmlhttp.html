@@ -1,0 +1,36 @@
+<!-- JS assignment 13.2 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    username="ashi-kakkar20";
+
+    // Creating a request variable and assign a new XMLHttpRequest object to it
+    var request = new XMLHttpRequest();
+
+    // Open the connection using the GET request on the URL endpoint
+    request.open('GET','https://api.github.com/users/'+ username, true);
+    request.onload=function ()
+    {
+        var data=JSON.parse(this.response); //Accessing the JSON data
+        if (request.status >= 200 && request.status < 400) //checking if the HTTP status code is >= 200(Ok) and < 400(Not Found)
+        {
+        console.log(data);//Getting all the data belonging to the above mentioned username
+        }
+        else //Logging if an error occurs
+        {
+        console.log('error');
+        } 
+    }
+   
+    request.send(); //Send the request
+    </script>
+   
+</body>
+</html>

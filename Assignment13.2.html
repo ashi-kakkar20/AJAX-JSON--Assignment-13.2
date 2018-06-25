@@ -1,0 +1,27 @@
+<!-- JS assignment 13.2 using Fetch  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assignment 13.2</title>
+</head>
+<body>
+    <script>
+    username="ashi-kakkar20"; //Username for testing
+    var url='https://api.github.com/users/' +username; //Git URL for fetching the userdata
+    fetch(url,{method: 'get'}).then(function(response){
+    if(response.ok) { // If read successfully from the URL, then show the user object with all details
+    response.json().then(function(data) {
+        console.log("User data:"); 
+        console.log(data);
+      });
+    }
+    }).catch(function()
+    {
+    console.log("Error!!"); //Else show as error.
+    });
+    </script>
+</body>
+</html>
